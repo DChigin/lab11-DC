@@ -12,16 +12,16 @@ class TestCalculator(unittest.TestCase):
         self.assertEqual(subtract(5, 10), -5)
 
     def test_multiply(self):
-        self.assertEqual(multiply(3, 7), 21)
-        self.assertEqual(multiply(0, 10), 0)
+        self.assertEqual(mul(3, 7), 21)
+        self.assertEqual(mul(0, 10), 0)
 
     def test_divide(self):
-        self.assertEqual(divide(2, 10), 5)
-        self.assertAlmostEqual(divide(3, 10), 3.3333333333333335)
+        self.assertEqual(div(2, 10), 5)
+        self.assertAlmostEqual(div(3, 10), 3.3333333333333335)
 
     def test_divide_by_zero(self):
         try:
-            divide(0, 10)
+            div(0, 10)
             raise AssertionError("ZeroDivisionError was not raised")
         except ZeroDivisionError:
             pass
