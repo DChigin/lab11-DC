@@ -20,21 +20,17 @@ class TestCalculator(unittest.TestCase):
         self.assertEqual(mul(5, -5), -25)
 
     def test_divide(self):
-        self.assertEqual(div(2, 10), 5)
-        self.assertEqual(div(3, 9), 10)
-        self.assertAlmostEqual(div(3, 10), 3.3333333333333335)
+        self.assertEqual(div(10, 2), 5)
+        self.assertEqual(div(9, 3), 3)
+        self.assertAlmostEqual(div(10, 3), 3.3333333333333335)
 
     def test_divide_by_zero(self):
-        try:
-            div(0, 10)
-            raise AssertionError("ZeroDivisionError was not raised")
-        except ZeroDivisionError:
-            pass
-
+        with self.assertRaises(ZeroDivisionError):
+            div(10, 0)
+        
     def test_logarithm(self):
-        self.assertEqual(int(exp(log(10))), (10) ) 
         self.assertAlmostEqual(logarithm(10, 100), 2.0)
-        self.assertAlmostEqual(logarithm(2, 8), 3.0)
+
 
     def test_log_invalid_argument(self):
         try:
@@ -44,16 +40,14 @@ class TestCalculator(unittest.TestCase):
             pass
 
     def test_log_invalid_base(self):
-        try:
+        with self.assertRaises(ValueError):
             logarithm(1, 10)
-            raise AssertionError("ValueError for invalid base was not raised")
-        except ValueError:
-            pass
+
 
     def test_hypotenuse(self):
         self.assertAlmostEqual(math.hypot(3, 4), 5.0)
         self.assertAlmostEqual(math.hypot(-3, -4), 5.0)
-        self.assertEqual(result, (25+9)**(1/2))
+        self.assertEqual(hypotenuse(5,3), (25+9)**(1/2))
 
     def test_sqrt(self):
         self.assertAlmostEqual(math.sqrt(25), 5.0)

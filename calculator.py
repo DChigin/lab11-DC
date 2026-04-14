@@ -22,7 +22,12 @@ def mul(a, b):
 def div(a, b): 
 	if a==0:
 		raise ZeroDivisionError("Cannot be divided by zero!")
-	return b / a
+	return a / b
+
+
+def exp(a, b): 
+	return a**b
+
 
 def logarithm(a, b):
     if a <= 0 or a == 1:
@@ -30,11 +35,6 @@ def logarithm(a, b):
     if b <= 0:
         raise ValueError("Log argument 'b' must be positive.")
     return math.log(b, a)
-
-def exp(a, b): 
-	return a**b
-
-
 
 
 
