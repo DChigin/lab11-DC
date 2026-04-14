@@ -1,22 +1,27 @@
+#https://github.com/DChigin/lab11-DC
 import unittest
 import math 
 from calculator import *
-
+ 
 class TestCalculator(unittest.TestCase):
     def test_add(self):
         self.assertEqual(add(10, 5), 15)
         self.assertEqual(add(-1, 1), 0)
+        self.assertEqual(add(77, 42), 119)
 
     def test_subtract(self):
         self.assertEqual(subtract(10, 5), 5)
         self.assertEqual(subtract(5, 10), -5)
+        self.assertEqual(subtract(0, 0), 0)
 
     def test_multiply(self):
         self.assertEqual(mul(3, 7), 21)
         self.assertEqual(mul(0, 10), 0)
+        self.assertEqual(mul(5, -5), -25)
 
     def test_divide(self):
         self.assertEqual(div(2, 10), 5)
+        self.assertEqual(div(3, 9), 10)
         self.assertAlmostEqual(div(3, 10), 3.3333333333333335)
 
     def test_divide_by_zero(self):
@@ -27,6 +32,7 @@ class TestCalculator(unittest.TestCase):
             pass
 
     def test_logarithm(self):
+        self.assertEqual(int(exp(log(10))), (10) ) 
         self.assertAlmostEqual(logarithm(10, 100), 2.0)
         self.assertAlmostEqual(logarithm(2, 8), 3.0)
 
@@ -47,6 +53,7 @@ class TestCalculator(unittest.TestCase):
     def test_hypotenuse(self):
         self.assertAlmostEqual(math.hypot(3, 4), 5.0)
         self.assertAlmostEqual(math.hypot(-3, -4), 5.0)
+        self.assertEqual(result, (25+9)**(1/2))
 
     def test_sqrt(self):
         self.assertAlmostEqual(math.sqrt(25), 5.0)
